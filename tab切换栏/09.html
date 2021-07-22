@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box1 {
+            width: 403px;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        ul {
+            /* width: 600px; */
+            height: 40px;
+            margin-left: -1px;
+            list-style: none;
+        }
+        li {
+            float: left;
+            width: 101px;
+            height: 40px;
+            text-align: center;
+            font: 600 18px/40px "simsun";
+            background-color: pink;
+            cursor: pointer;
+        }
+        img{
+            width: 403px;
+            height: 500px;
+        }
+        .show {
+            display: block;
+        }
+        .current {
+            background-color:rgb(243, 138, 138);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <ul>
+            <li class="current">jennie</li>
+            <li>lisa</li>
+            <li>jisso</li>
+            <li>rosie</li>
+        </ul>
+        <div class="box2">
+            <img class="show" src="jennie.png" alt="">
+            <img src="lisa.png" alt="">
+            <img src="jisso.png" alt="">
+            <img src="rosie.png" alt="">
+        </div>
+    </div>
+    <script>
+        var lits = document.querySelectorAll('li');
+        var imgs = document.querySelectorAll('img');
+        for(var i = 0;i < lits.length; i++){
+            // 设置索引
+            lits[i].setAttribute('index',i);
+
+            lits[i].onclick = function(){
+
+                for(var i = 0;i <lits.length; i++){
+                    lits[i].className = '';
+                }
+                this.className = 'current';
+                var index = this.getAttribute('index');
+                for(var i = 0;i < imgs.length; i++){
+                    imgs[i].style.display = 'none';
+                }
+                imgs[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
